@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: "greg_stg_customers"
+    description: "Customer data loaded from CSV file"
+    columns:
+      - name: ID
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: FIRST_NAME
+        description: "The customers FIRST name"
+        tests:
+          - not_null
+      - name: LAST_NAME
+        description: "The customers LAST name"
+        tests:
+          - not_null
+
+  - name: "greg_stg_orders"
+    description: "Orders data loaded from CSV file"
+    columns:
+      - name: ID
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: USER_ID
+        description: "The foreign key from the Customer model"
+        tests:
+          - not_null
+      - name: ORDER_DATE
+        description: "The month - day - year of the order"
+        tests:
+          - not_null
+      - name: STATUS
+        description: "The placed - completed - shipped - return_pending of the order"
+        tests:
+          - not_null
+      - name: _etl_loaded_at
+        description: "The year - month - day - hour - min - sec - msec of the last update"
+        tests:
+          - not_null
+
+  - name: "greg_stg_payments"
+    description: "Payments data loaded from CSV file"
+    columns:
+      - name: ID
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: ORDERID
+        description: "The foreign key from the Order model"
+        tests:
+          - not_null
+      - name: PAYMENTMETHOD
+        description: "The credit_card - bank_transaction - gift_card - coupon of payment"
+        tests:
+          - not_null
+      - name: STATUS
+        description: "The success - fail of payment"
+        tests:
+          - not_null
+      - name: AMOUNT
+        description: "The whole dollar amount of payment"
+        tests:
+          - not_null
+      - name: CREATED
+        description: "The month - day - year of the payment"
+        tests:
+          - not_null
+      - name: _batched_at
+        description: "The year - month - day - hour - min - sec - msec of the last update"
+        tests:
+          - not_null

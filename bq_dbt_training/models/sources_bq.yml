@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: "dna_stg"
+    database: "poc-dna-bigbets-foundry-47416"
+    schema: "dna_foundry_staging_dataset"
+    tables:
+      - name: "CustomersGregory"
+      - name: "OrdersGregory"
+      - name: "PaymentsGregory"
