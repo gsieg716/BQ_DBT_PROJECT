@@ -1,9 +1,13 @@
+
+
 with customers as (
     select * from {{ ref('greg_stg_customers')}}
 ),
+
 orders as (
     select * from {{ ref('greg_fct_orders')}}
 ),
+
 customer_orders as (
     select
         customer_id,
@@ -14,6 +18,7 @@ customer_orders as (
     from orders
     group by 1
 ),
+
 final as (
     select
         customers.customer_id,
@@ -23,7 +28,8 @@ final as (
         customer_orders.most_recent_order_date,
         coalesce(customer_orders.number_of_orders, 0) as number_of_orders,
         customer_orders.lifetime_value
-    from customers
-    left join customer_orders using (customer_id)
+    from customer_orders
+    left join customers using (customer_id)
 )
+
 select * from final

@@ -2,9 +2,16 @@ version: 2
 
 sources:
   - name: "dna_stg"
+    description: "Base dataset found in dna_foundry_staging_dataset"
     database: "poc-dna-bigbets-foundry-47416"
     schema: "dna_foundry_staging_dataset"
     tables:
       - name: "CustomersGregory"
+        description: "Source table that contains ID, First_Name, Last_Name"
       - name: "OrdersGregory"
+        description: "Source table that contains ID, USER_ID, ORDER_DATE, STATUS, _etl_loaded_at"
       - name: "PaymentsGregory"
+        description: "Source table that contains ID, ORDERID, PAYMENTMETHOD, STATUS, AMOUNT, CREATED, _batched_at"
+
+
+        
