@@ -1,8 +1,8 @@
 
 SELECT 
     id as payment_id, 
-    orderid, 
-    paymentmethod,
+    orderid as order_id, 
+    paymentmethod as payment_method,
     status,
     amount,
     created

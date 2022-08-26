@@ -32,5 +32,7 @@ models:
   'bq_dbt_training':
     staging:
       +materialized: "view"
+      +schema: 'dna_foundry_curated_dataset'
     marts:
       +materialized: "table"
+      +schema: 'dna_foundry_confirmed_dataset'

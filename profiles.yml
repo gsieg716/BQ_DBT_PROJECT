@@ -10,24 +10,4 @@ bq_dbt_training:
       project: poc-dna-bigbets-foundry-47416
       threads: 4
       type: bigquery
-    dev:
-      dataset: 'dna_foundry_confirmed_dataset'
-      job_execution_timeout_seconds: 500
-      job_retries: 1
-      location: us-east4
-      method: oauth
-      priority: interactive
-      project: poc-dna-bigbets-foundry-47416
-      threads: 4
-      type: bigquery
-    dev:
-      dataset: 'dna_foundry_curated_dataset'
-      job_execution_timeout_seconds: 500
-      job_retries: 1
-      location: us-east4
-      method: oauth
-      priority: interactive
-      project: poc-dna-bigbets-foundry-47416
-      threads: 4
-      type: bigquery
   target: dev
