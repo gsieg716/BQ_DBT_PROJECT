@@ -29,10 +29,22 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 models:
-  'bq_dbt_training':
+  bq_dbt_training:
     staging:
       +materialized: "view"
       +schema: 'dna_foundry_curated_dataset'
     marts:
       +materialized: "table"
       +schema: 'dna_foundry_confirmed_dataset'
+
+# Configure snapshots
+# Full documentation: https://docs.getdbt.com/reference/snapshot-configs    
+
+snapshots:
+  bq_dbt_training:
+    greg_snapshot_orders:
+      +target_schema: 'dna_foundry_curated_dataset'
+      +strategy: 'timestamp'
+      +unique_key: 'ID'
+      +updated_at: '_etl_loaded_at'
+      +invalidate_hard_deletes: True
