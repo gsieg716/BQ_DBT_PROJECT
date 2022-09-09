@@ -1,0 +1,5 @@
+{
+    "dbt-bigquery-preview.location": "us-east4",
+    "dbt-bigquery-preview.projectId": "poc-dna-bigbets-foundry-47416",
+    "dbt-bigquery-preview.executablePath": "D:\\GCP_TRAINING\\BQ_DBT_PROJECT\\dbt-env\\Scripts"
+}
